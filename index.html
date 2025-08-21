@@ -140,41 +140,6 @@
             font-weight: bold;
         }
         
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-        
-        .nav-link {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .nav-link:hover,
-        .nav-link.active {
-            color: var(--primary-blue);
-        }
-        
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--gradient-primary);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link:hover::after,
-        .nav-link.active::after {
-            width: 100%;
-        }
-        
         .nav-controls {
             display: flex;
             align-items: center;
@@ -221,23 +186,6 @@
         
         [data-theme="light"] .moon-icon {
             opacity: 1;
-        }
-        
-        .mobile-menu-toggle {
-            display: none;
-            flex-direction: column;
-            gap: 4px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-        
-        .mobile-menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: var(--text-secondary);
-            transition: all 0.3s ease;
         }
         
         /* Hero Section */
@@ -386,7 +334,7 @@
         }
         
         .demo-container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
         }
         
@@ -399,8 +347,19 @@
             box-shadow: var(--shadow-primary);
         }
         
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
         .form-group {
             margin-bottom: 1.5rem;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
         }
         
         .form-label {
@@ -464,51 +423,23 @@
         .demo-result {
             display: none;
             margin-top: 2rem;
+        }
+        
+        .result-section {
             background: var(--glass-bg);
             backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
             border-radius: 20px;
             padding: 2rem;
+            margin-bottom: 2rem;
             box-shadow: var(--shadow-primary);
         }
         
-        .result-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .score-display {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .score-item {
-            text-align: center;
-        }
-        
-        .score-number {
-            font-size: 2rem;
-            font-weight: 700;
+        .result-section h3 {
             color: var(--primary-blue);
-        }
-        
-        .score-label {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-        
-        .improvement {
-            background: var(--gradient-primary);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
             font-weight: 600;
-            font-size: 0.9rem;
         }
         
         .result-content {
@@ -519,11 +450,12 @@
             font-weight: 600;
             color: var(--text-primary);
             margin-bottom: 0.5rem;
+            display: block;
         }
         
         .result-textarea {
             width: 100%;
-            min-height: 200px;
+            min-height: 150px;
             padding: 1rem;
             border: 1px solid var(--border-color);
             border-radius: 10px;
@@ -535,51 +467,57 @@
             resize: vertical;
         }
         
-        /* About & Contact Sections */
-        .about, .contact {
-            padding: 5rem 2rem;
+        .result-text {
             background: var(--bg-secondary);
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
         }
         
-        .about-content, .contact-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .about-text {
-            font-size: 1.2rem;
-            color: var(--text-secondary);
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-        
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .contact-item {
+        .tags-container {
             display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-wrap: wrap;
             gap: 0.5rem;
-            color: var(--text-secondary);
-            text-decoration: none;
-            transition: color 0.3s ease;
+            margin-top: 0.5rem;
         }
         
-        .contact-item:hover {
-            color: var(--primary-blue);
+        .tag {
+            background: var(--primary-blue);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .image-fields {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .image-field {
+            background: var(--bg-secondary);
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .image-field-label {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .image-field-value {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.4;
         }
         
         /* Footer */
@@ -609,12 +547,8 @@
         
         /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-            
-            .mobile-menu-toggle {
-                display: flex;
+            .form-row {
+                grid-template-columns: 1fr;
             }
             
             .hero-stats {
@@ -630,17 +564,8 @@
                 padding: 1.5rem;
             }
             
-            .stats-grid {
+            .image-fields {
                 grid-template-columns: 1fr;
-            }
-            
-            .contact-info {
-                grid-template-columns: 1fr;
-            }
-            
-            .result-header {
-                flex-direction: column;
-                gap: 1rem;
             }
         }
     </style>
@@ -658,14 +583,6 @@
                 SEO OPTIMIZER
             </a>
             
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home" class="nav-link">Ana Sayfa</a></li>
-                <li><a href="#features" class="nav-link">Özellikler</a></li>
-                <li><a href="#demo" class="nav-link">Demo</a></li>
-                <li><a href="#about" class="nav-link">Hakkında</a></li>
-                <li><a href="#contact" class="nav-link">İletişim</a></li>
-            </ul>
-
             <div class="nav-controls">
                 <button class="theme-toggle" id="themeToggle">
                     <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -682,12 +599,6 @@
                     <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
                     </svg>
-                </button>
-                
-                <button class="mobile-menu-toggle" id="menuToggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
                 </button>
             </div>
         </div>
@@ -725,33 +636,33 @@
                 <div class="feature-icon">⚡</div>
                 <h3 class="feature-title">Gelişmiş SEO Optimizasyonu</h3>
                 <p class="feature-description">
-                    ✅ Title tag optimizasyonu (55-60 karakter)<br>
-                    ✅ Meta description oluşturma (140-160 karakter)<br>
-                    ✅ Keyword yoğunluğu ayarlama (%1.5-2.5)<br>
-                    ✅ Alt text ve schema markup ekleme<br>
+                    ✅ Title tag optimizasyonu (max 60 karakter)<br>
+                    ✅ Meta description (150-160 karakter)<br>
+                    ✅ Keyword density (%0.5-2.5)<br>
+                    ✅ Alt text ve schema markup<br>
                     ✅ İç/dış link optimizasyonu
                 </p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">🎯</div>
-                <h3 class="feature-title">Akıllı Analiz</h3>
+                <h3 class="feature-title">Akıllı İçerik Analizi</h3>
                 <p class="feature-description">
-                    ✅ Yapay zeka destekli içerik analizi<br>
-                    ✅ SEO skor hesaplama<br>
-                    ✅ Rakip analizi<br>
-                    ✅ Anahtar kelime önerileri<br>
-                    ✅ Performans raporları
+                    ✅ 600+ kelime içerik kontrolü<br>
+                    ✅ H1 > H2 > H3 hiyerarşisi<br>
+                    ✅ Table of Contents ekleme<br>
+                    ✅ Paragraf uzunluğu optimizasyonu<br>
+                    ✅ Pasif cümle oranı kontrolü
                 </p>
             </div>
             <div class="feature-card">
                 <div class="feature-icon">🚀</div>
-                <h3 class="feature-title">Hızlı Sonuçlar</h3>
+                <h3 class="feature-title">Otomatik Çıktılar</h3>
                 <p class="feature-description">
-                    ✅ Anında optimizasyon<br>
-                    ✅ WordPress uyumlu çıktı<br>
-                    ✅ Kopyala-yapıştır hazır<br>
-                    ✅ Detaylı raporlar<br>
-                    ✅ Ücretsiz kullanım
+                    ✅ Optimize edilmiş başlık<br>
+                    ✅ WordPress uyumlu HTML<br>
+                    ✅ 5-10 alakalı etiket<br>
+                    ✅ Görsel alanları otomatik doldurma<br>
+                    ✅ Rank Math 90+ skor garantisi
                 </p>
             </div>
         </div>
@@ -762,88 +673,79 @@
         <div class="demo-container">
             <h2 class="section-title">SEO Optimizasyon Demo</h2>
             <form class="demo-form" id="seoForm">
-                <div class="form-group">
-                    <label for="htmlInput" class="form-label">HTML İçeriği:</label>
-                    <textarea id="htmlInput" class="form-textarea" placeholder="Optimize edilecek HTML içeriğini buraya yapıştırın..." required></textarea>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="titleInput" class="form-label">Başlık:</label>
+                        <input type="text" id="titleInput" class="form-input" placeholder="Örnek: Yatırım Teşvik Belgesi Alma Rehberi" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="keywordInput" class="form-label">Odak Anahtar Kelime:</label>
+                        <input type="text" id="keywordInput" class="form-input" placeholder="Örnek: yatırım teşvik belgesi" required>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="keywordInput" class="form-label">Odak Anahtar Kelime:</label>
-                    <input type="text" id="keywordInput" class="form-input" placeholder="Örnek: SEO optimizasyonu" required>
+                    <label for="htmlInput" class="form-label">HTML İçerik:</label>
+                    <textarea id="htmlInput" class="form-textarea" placeholder="Optimize edilecek HTML içeriğini buraya yapıştırın..." required></textarea>
                 </div>
                 <div class="form-group">
                     <label for="seoScoreInput" class="form-label">Mevcut SEO Skoru (0-100):</label>
                     <input type="number" id="seoScoreInput" class="form-input" placeholder="Örnek: 65" min="0" max="100" required>
                 </div>
-                <button type="submit" class="demo-button">Optimize Et</button>
+                <button type="submit" class="demo-button">OPTIMIZE</button>
             </form>
             
             <div class="demo-result" id="demoResult">
-                <div class="result-header">
-                    <div class="score-display">
-                        <div class="score-item">
-                            <div class="score-number" id="scoreBefore">65</div>
-                            <div class="score-label">Önceki Skor</div>
-                        </div>
-                        <div style="font-size: 1.5rem; color: var(--text-secondary);">→</div>
-                        <div class="score-item">
-                            <div class="score-number" id="scoreAfter">90</div>
-                            <div class="score-label">Yeni Skor</div>
+                <!-- 1. Optimize Edilmiş Başlık -->
+                <div class="result-section">
+                    <h3>1. Optimize Edilmiş Başlık</h3>
+                    <div class="result-content">
+                        <div class="result-text" id="optimizedTitle"></div>
+                    </div>
+                </div>
+                
+                <!-- 2. Optimize Edilmiş HTML İçerik -->
+                <div class="result-section">
+                    <h3>2. Optimize Edilmiş HTML İçerik</h3>
+                    <div class="result-content">
+                        <div class="result-label">WordPress'e yapıştırmaya hazır HTML:</div>
+                        <textarea class="result-textarea" id="optimizedHtml" readonly></textarea>
+                    </div>
+                </div>
+                
+                <!-- 3. Alakalı Etiketler -->
+                <div class="result-section">
+                    <h3>3. Alakalı Etiketler (5-10 adet)</h3>
+                    <div class="result-content">
+                        <div class="result-label">Virgülle ayrılmış etiketler:</div>
+                        <div class="result-text" id="suggestedTags"></div>
+                        <div class="tags-container" id="tagsContainer"></div>
+                    </div>
+                </div>
+                
+                <!-- 4. Görsel Alanları -->
+                <div class="result-section">
+                    <h3>4. Görsel Alanları (Otomatik Doldurulmuş)</h3>
+                    <div class="result-content">
+                        <div class="image-fields">
+                            <div class="image-field">
+                                <div class="image-field-label">Alternatif Metin (Alt Text):</div>
+                                <div class="image-field-value" id="altText"></div>
+                            </div>
+                            <div class="image-field">
+                                <div class="image-field-label">Başlık (Title):</div>
+                                <div class="image-field-value" id="imageTitle"></div>
+                            </div>
+                            <div class="image-field">
+                                <div class="image-field-label">Alt Yazı (Caption):</div>
+                                <div class="image-field-value" id="imageCaption"></div>
+                            </div>
+                            <div class="image-field">
+                                <div class="image-field-label">Açıklama (Description):</div>
+                                <div class="image-field-value" id="imageDescription"></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="improvement" id="improvement">+25 puan iyileştirme!</div>
                 </div>
-                <div class="result-content">
-                    <div class="result-label">Optimize Edilmiş HTML:</div>
-                    <textarea class="result-textarea" id="optimizedHtml" readonly></textarea>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="about-content">
-            <h2 class="section-title">Hakkında</h2>
-            <h3>Blog SEO Optimizer</h3>
-            <p class="about-text">
-                WordPress içeriklerinizi yapay zeka destekli algoritmalarla optimize eden gelişmiş bir araç. 
-                SEO skorunuzu 90+ seviyesine yükseltin, arama motorlarında üst sıralarda yer alın.
-            </p>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-number">95%</div>
-                    <div class="stat-label">Başarı Oranı</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">+42</div>
-                    <div class="stat-label">Ortalama İyileştirme</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-number">1000+</div>
-                    <div class="stat-label">Optimize Edilen İçerik</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="contact-content">
-            <h2 class="section-title">İletişim</h2>
-            <h3>Bizimle İletişime Geçin</h3>
-            <p class="about-text">
-                SEO optimizasyonu hakkında sorularınız mı var? Size yardımcı olmaktan mutluluk duyarız.
-            </p>
-            <div class="contact-info">
-                <a href="mailto:info@seooptimizer.com" class="contact-item">
-                    📧 info@seooptimizer.com
-                </a>
-                <a href="https://www.seooptimizer.com" class="contact-item">
-                    🌐 www.seooptimizer.com
-                </a>
-                <a href="tel:+905551234567" class="contact-item">
-                    📱 +90 555 123 4567
-                </a>
             </div>
         </div>
     </section>
@@ -879,76 +781,6 @@
             });
         }
 
-        // Mobile Menu Toggle
-        function initMobileMenu() {
-            const menuToggle = document.getElementById('menuToggle');
-            const navLinks = document.getElementById('navLinks');
-
-            menuToggle.addEventListener('click', () => {
-                menuToggle.classList.toggle('active');
-                navLinks.classList.toggle('active');
-            });
-
-            // Close mobile menu when clicking a link
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.addEventListener('click', () => {
-                    menuToggle.classList.remove('active');
-                    navLinks.classList.remove('active');
-                });
-            });
-        }
-
-        // Navigation Highlighting
-        function initNavigation() {
-            const sections = document.querySelectorAll('section');
-            const navItems = document.querySelectorAll('.nav-link');
-
-            function updateActiveNav() {
-                const scrollPosition = window.pageYOffset + 100;
-
-                sections.forEach((section) => {
-                    const sectionTop = section.offsetTop;
-                    const sectionHeight = section.offsetHeight;
-
-                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                        navItems.forEach(item => item.classList.remove('active'));
-                        const currentNav = document.querySelector(`.nav-link[href="#${section.id}"]`);
-                        if (currentNav) currentNav.classList.add('active');
-                    }
-                });
-            }
-
-            // Navbar scroll effect
-            window.addEventListener('scroll', function() {
-                const navbar = document.getElementById('navbar');
-                if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
-                } else {
-                    navbar.classList.remove('scrolled');
-                }
-                updateActiveNav();
-            });
-
-            // Initial active nav update
-            updateActiveNav();
-        }
-
-        // Smooth Scrolling
-        function initSmoothScrolling() {
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-        }
-
         // SEO Optimization Demo
         function initSEODemo() {
             const seoForm = document.getElementById('seoForm');
@@ -957,11 +789,12 @@
             seoForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
                 
+                const titleInput = document.getElementById('titleInput');
                 const htmlInput = document.getElementById('htmlInput');
                 const keywordInput = document.getElementById('keywordInput');
                 const seoScoreInput = document.getElementById('seoScoreInput');
 
-                if (!htmlInput.value || !keywordInput.value || !seoScoreInput.value) {
+                if (!titleInput.value || !htmlInput.value || !keywordInput.value || !seoScoreInput.value) {
                     alert('Lütfen tüm alanları doldurun!');
                     return;
                 }
@@ -975,6 +808,7 @@
                 try {
                     // Try real API first
                     const result = await performSEOOptimization(
+                        titleInput.value,
                         htmlInput.value, 
                         keywordInput.value, 
                         parseInt(seoScoreInput.value)
@@ -999,7 +833,7 @@
         }
 
         // Real SEO optimization with API
-        async function performSEOOptimization(htmlCode, focusKeyword, currentScore) {
+        async function performSEOOptimization(title, htmlCode, focusKeyword, currentScore) {
             try {
                 // API endpoint
                 const apiUrl = 'https://blog-seo-optimizer-api.vercel.app/api/optimize';
@@ -1010,13 +844,10 @@
                         'Content-Type': 'application/json',
                     },
                     body: JSON.stringify({
+                        title: title,
                         html_code: htmlCode,
                         focus_keyword: focusKeyword,
-                        seo_score: currentScore,
-                        categories: ['Blog'],
-                        tags: [],
-                        image: '',
-                        schema: 'Article'
+                        seo_score: currentScore
                     })
                 });
 
@@ -1027,12 +858,7 @@
                 const result = await response.json();
                 
                 if (result.success) {
-                    return {
-                        scoreBefore: result.data.seo_score_before,
-                        scoreAfter: result.data.seo_score_after,
-                        improvement: result.data.improvement,
-                        optimizedHTML: result.data.optimized_html_wordpress
-                    };
+                    return result.data;
                 } else {
                     throw new Error(result.error || 'Optimization failed');
                 }
@@ -1044,21 +870,50 @@
                 console.log('Using fallback simulation...');
                 await new Promise(resolve => setTimeout(resolve, 2000));
                 
-                const improvement = Math.floor(Math.random() * 30) + 15;
-                const newScore = Math.min(currentScore + improvement, 100);
-                const optimizedHTML = generateOptimizedHTML(htmlCode, focusKeyword);
-                
-                return {
-                    scoreBefore: currentScore,
-                    scoreAfter: newScore,
-                    improvement: improvement,
-                    optimizedHTML: optimizedHTML
-                };
+                return generateFallbackResults(title, htmlCode, focusKeyword, currentScore);
             }
         }
 
-        // Generate optimized HTML (fallback)
-        function generateOptimizedHTML(htmlCode, focusKeyword) {
+        // Generate fallback results
+        function generateFallbackResults(title, htmlCode, focusKeyword, currentScore) {
+            // Optimize title
+            const optimizedTitle = `${focusKeyword} - ${title}`.substring(0, 60);
+            
+            // Generate tags
+            const tags = [
+                focusKeyword,
+                `${focusKeyword} rehberi`,
+                `${focusKeyword} nasıl alınır`,
+                `${focusKeyword} 2025`,
+                `${focusKeyword} başvuru`,
+                `${focusKeyword} şartları`,
+                `${focusKeyword} belgeleri`,
+                `${focusKeyword} süreci`
+            ].slice(0, 8);
+            
+            // Generate image fields
+            const altText = `${focusKeyword} konusunda detaylı bilgi ve rehber`;
+            const imageTitle = `${focusKeyword.toLowerCase().replace(/\s+/g, '-')}-rehberi-2025`;
+            const imageCaption = `${focusKeyword} Rehberi - 2025 Güncel Bilgiler`;
+            const imageDescription = `${focusKeyword} konusunda kapsamlı rehber ve uzman danışmanlık hizmetleri.`;
+            
+            // Optimize HTML content
+            const optimizedHTML = generateOptimizedHTML(htmlCode, focusKeyword, optimizedTitle);
+            
+            return {
+                optimized_title: optimizedTitle,
+                optimized_html: optimizedHTML,
+                suggested_tags: tags.join(', '),
+                alt_text: altText,
+                image_title: imageTitle,
+                image_caption: imageCaption,
+                image_description: imageDescription,
+                seo_score_after: Math.min(currentScore + 25, 95)
+            };
+        }
+
+        // Generate optimized HTML
+        function generateOptimizedHTML(htmlCode, focusKeyword, optimizedTitle) {
             let optimized = htmlCode;
             
             // Add focus keyword to first paragraph if not present
@@ -1072,23 +927,41 @@
                 }
             }
             
+            // Add H2 heading
+            const h2Heading = `<h2>${focusKeyword} Nedir?</h2>`;
+            optimized = optimized.replace('</p>', `</p>\n${h2Heading}\n`, 1);
+            
+            // Add internal link
+            const internalLink = `<a href="/${focusKeyword.toLowerCase().replace(/\s+/g, '-')}" title="${focusKeyword}">daha fazla bilgi</a>`;
+            optimized = optimized.replace('</p>', ` ${internalLink}</p>`, 1);
+            
             return optimized;
         }
 
         // Display optimization results
         function displayResults(result) {
-            document.getElementById('scoreBefore').textContent = result.scoreBefore;
-            document.getElementById('scoreAfter').textContent = result.scoreAfter;
-            document.getElementById('improvement').textContent = `+${result.improvement} puan iyileştirme!`;
-            document.getElementById('optimizedHtml').value = result.optimizedHTML;
+            document.getElementById('optimizedTitle').textContent = result.optimized_title;
+            document.getElementById('optimizedHtml').value = result.optimized_html;
+            document.getElementById('suggestedTags').textContent = result.suggested_tags;
+            document.getElementById('altText').textContent = result.alt_text;
+            document.getElementById('imageTitle').textContent = result.image_title;
+            document.getElementById('imageCaption').textContent = result.image_caption;
+            document.getElementById('imageDescription').textContent = result.image_description;
+            
+            // Display tags as individual elements
+            const tagsContainer = document.getElementById('tagsContainer');
+            tagsContainer.innerHTML = '';
+            result.suggested_tags.split(', ').forEach(tag => {
+                const tagElement = document.createElement('span');
+                tagElement.className = 'tag';
+                tagElement.textContent = tag;
+                tagsContainer.appendChild(tagElement);
+            });
         }
 
         // Initialize all functionality when DOM is loaded
         document.addEventListener('DOMContentLoaded', function() {
             initThemeToggle();
-            initMobileMenu();
-            initNavigation();
-            initSmoothScrolling();
             initSEODemo();
             
             console.log('🚀 Blog SEO Optimizer - Web sitesi başlatıldı!');
