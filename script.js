@@ -175,7 +175,7 @@ function initSEODemo() {
 async function simulateSEOOptimization(htmlCode, focusKeyword, currentScore) {
     try {
         // API endpoint (replace with your actual API URL)
-        const apiUrl = 'https://blog-seo-optimizer-9b5r.vercel.app/api/optimize';
+        const apiUrl = 'https://blog-seo-optimizer-api.vercel.app/api/optimize';
         
         const response = await fetch(apiUrl, {
             method: 'POST',
